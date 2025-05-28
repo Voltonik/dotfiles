@@ -12,9 +12,9 @@ indicator-thickness=20
 clock
 timestr=%I:%M %p
 datestr=%A, %d %B
-ring-color=$(grep color4 ~/.config/wal/colors | cut -d' ' -f2)
-key-hl-color=$(grep color5 ~/.config/wal/colors | cut -d' ' -f2)
-line-color=$(grep color0 ~/.config/wal/colors | cut -d' ' -f2)
-separator-color=$(grep color1 ~/.config/wal/colors | cut -d' ' -f2)
-inside-color=$(grep color0 ~/.config/wal/colors | cut -d' ' -f2)
-text-color=$(grep color7 ~/.config/wal/colors | cut -d' ' -f2)
+ring-color=$(sed '5q;d' ~/.cache/wal/colors)
+key-hl-color=$(sed '6q;d' ~/.cache/wal/colors)
+line-color=$(sed '1q;d' ~/.cache/wal/colors)
+separator-color=$(sed '2q;d' ~/.cache/wal/colors)
+inside-color=$(sed '1q;d' ~/.cache/wal/colors)
+text-color=$(sed '8q;d' ~/.cache/wal/colors)

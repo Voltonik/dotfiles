@@ -1,5 +1,4 @@
-/* Import the pywal-generated colors.css */
-@import url("colors-waybar.css");
+@import url("pywal-colors.css");
 
 * {
     font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;

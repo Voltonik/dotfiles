@@ -1,3 +1,4 @@
+import os
 import decman
 import decman.config
 
@@ -6,6 +7,9 @@ from paru_wrapper import ParuWrapperCommands
 from desktop import Desktop
 from themer import Themer
 
+
+if os.environ.get("DBUS_SESSION_BUS_ADDRESS", "") == "":
+    raise EnvironmentError("Environment variables not set. Make sure to run with sudo -E") 
 
 current_user = "mark"
 
@@ -22,17 +26,7 @@ decman.modules += [
 
 decman.ignored_packages += default_packages
 decman.packages += [
-    "git",
-    "neovim",
-
 #AUR Packages:
     "decman",
-    "thorium-browser-bin",
     "visual-studio-code-bin"
-]
-
-decman.enabled_systemd_units += [
-    "NetworkManager.service",
-    "bluetooth.service",
-    "ly.service"
 ]

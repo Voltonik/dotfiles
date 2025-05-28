@@ -9,19 +9,19 @@
     "color0": "#000000", 
     "color1": "#D71921", 
     "color2": "#E03C3C", 
-    "color3": "#3C2A2A", 
-    "color4": "#303032", 
-    "color5": "#7A3C3C", 
-    "color6": "#4D4142", 
+    "color3": "#7A3C3C", 
+    "color4": "#4D4142", 
+    "color5": "#303032", 
+    "color6": "#FF1D25", 
     "color7": "#E0E0E0", 
     
     "color8": "#2A2A2C", 
-    "color9": "#FF1D25", 
-    "color10": "#6C4D4D",
-    "color11": "#E03C3C",
-    "color12": "#D71921",
-    "color13": "#47A76A",
-    "color14": "#F0A030",
-    "color15": "#FFFFFF" 
+    "color9": "#D71921", 
+    "color10": "#E03C3C",
+    "color11": "#7A3C3C",
+    "color12": "#4D4142",
+    "color13": "#303032",
+    "color14": "#FF1D25",
+    "color15": "#E0E0E0" 
   }
 }

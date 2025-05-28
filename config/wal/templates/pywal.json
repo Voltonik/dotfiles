@@ -1,15 +1,15 @@
 {{
     "name": "pywal",
     "variables": {{
-        "accent_color": "{color12}",
-        "accent_bg_color": "{color12}",
-        "accent_fg_color": "#{color12.lighten(70%)}",
-        "destructive_color": "{color11}",
-        "destructive_bg_color": "{color3}",
+        "accent_color": "{color1}",
+        "accent_bg_color": "{color3}",
+        "accent_fg_color": "#{color1.lighten(70%)}",
+        "destructive_color": "{color2}",
+        "destructive_bg_color": "{color11}",
         "destructive_fg_color": "#{color11.lighten(70%)}",
-        "success_color": "{color13}",
-        "success_bg_color": "{color13}",
-        "success_fg_color": "{color15}",
+        "success_color": "{color3}",
+        "success_bg_color": "{color7}",
+        "success_fg_color": "#{color7.lighten(70%)}",
         "warning_color": "{color14}",
         "warning_bg_color": "{color6}",
         "warning_fg_color": "{color15}",
@@ -23,7 +23,7 @@
         "headerbar_bg_color": "{color0}",
         "headerbar_fg_color": "{color15}",
         "headerbar_border_color": "#{color0.lighten(3%)}",
-        "headerbar_backdrop_color": "{color4}",
+        "headerbar_backdrop_color": "{color5}",
         "headerbar_shade_color": "#{color0.lighten(2%)}",
         "card_bg_color": "#{color0.lighten(2%)}",
         "card_fg_color": "{color15}",
@@ -105,7 +105,7 @@
         }}
     }},
     "custom_css": {{
-        "gtk4": "",
+        "gtk4": ":root {{\n\t--accent-bg-color: {color1};\n}}\n\n*:selected {{\n    background-color: {color3};\n    color: #{color1.lighten(70%)};\n}}",
         "gtk3": ""
     }},
     "plugins": {{}}

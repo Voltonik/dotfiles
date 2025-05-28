@@ -1,4 +1,4 @@
-from decman import Module, Directory, File
+from decman import Module, Directory, File, prg
 
 class Desktop(Module):
     def __init__(self, current_user: str):
@@ -6,11 +6,12 @@ class Desktop(Module):
         self.home_dir = f"/home/{current_user}"
         self.config_dest_dir = f"{self.home_dir}/.config"
         
-
         super().__init__(name="desktop", enabled=True, version="1")
 
     def pacman_packages(self) -> list[str]:
         return [
+            "git",
+            "neovim",
             "hyprland",
             "swaybg",
             "swaylock",
@@ -19,7 +20,7 @@ class Desktop(Module):
             "waybar",
             "wofi",
             "btop",
-            "mako",
+            "swaync",
             "nautilus",
             "xdg-desktop-portal",
             "xdg-desktop-portal-hyprland",
@@ -29,9 +30,18 @@ class Desktop(Module):
             "swappy",
             "kitty",
             "network-manager-applet",
+            "bluez-utils",
+            "freetype2",
+            "fontconfig",
+            "cairo",
 
 # AUR Packages:
             "wlogout",
+            "thorium-browser-bin",
+            "httpdirfs-git",
+            "ttf-ms-win11-auto",
+            "qt5ct",
+            "qt6ct",
         ]
     
     def files(self) -> dict[str, File]:
@@ -54,8 +64,8 @@ class Desktop(Module):
                 source_directory="./config/wofi",
                 owner=self.current_user,
             ),
-            f"{self.config_dest_dir}/mako/": Directory(
-                source_directory="./config/mako",
+            f"{self.config_dest_dir}/swaync/": Directory(
+                source_directory="./config/swaync",
                 owner=self.current_user,
             ),
             f"{self.config_dest_dir}/wlogout/": Directory(
@@ -74,7 +84,26 @@ class Desktop(Module):
                 source_directory="./config/fish",
                 owner=self.current_user,
             ),
+            f"{self.config_dest_dir}/kitty/": Directory(
+                source_directory="./config/kitty",
+                owner=self.current_user,
+            ),
+            f"{self.config_dest_dir}/fontconfig/": Directory(
+                source_directory="./config/fontconfig",
+                owner=self.current_user,
+            ),
+            f"{self.config_dest_dir}/qt5ct/": Directory(
+                source_directory="./config/qt5ct",
+                owner=self.current_user,
+            ),
         }
+    
+    def systemd_units(self) -> list[str]:
+        return [
+            "NetworkManager.service",
+            "bluetooth.service",
+            "ly.service",
+        ]
 
     def systemd_user_units(self) -> dict[str, list[str]]:
         return {
@@ -83,3 +112,5 @@ class Desktop(Module):
 
     def after_update(self):
         print("-------Reloading Desktop-------")
+        prg(["hyprctl", "reload"], self.current_user)
+        
