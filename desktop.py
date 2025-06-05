@@ -18,7 +18,9 @@ class Desktop(Module):
             "swayidle",
             "ly",
             "waybar",
-            "wofi",
+            "mpd",
+            "rofi-wayland",
+            "rofi-calc",
             "btop",
             "swaync",
             "nautilus",
@@ -30,6 +32,7 @@ class Desktop(Module):
             "swappy",
             "kitty",
             "network-manager-applet",
+            "blueman",
             "bluez-utils",
             "freetype2",
             "fontconfig",
@@ -60,9 +63,10 @@ class Desktop(Module):
                 source_directory="./config/waybar",
                 owner=self.current_user,
             ),
-            f"{self.config_dest_dir}/wofi/": Directory(
-                source_directory="./config/wofi",
+            f"{self.config_dest_dir}/rofi/": Directory(
+                source_directory="./config/rofi",
                 owner=self.current_user,
+                permissions=0o755
             ),
             f"{self.config_dest_dir}/swaync/": Directory(
                 source_directory="./config/swaync",

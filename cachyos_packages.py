@@ -19,6 +19,7 @@ default_packages = [
     "btrfs-assistant",
     "btrfs-progs",
     "cachyos-fish-config",
+	"cachyos-gaming-meta",
     "cachyos-hooks",
     "cachyos-kernel-manager",
     "cachyos-keyring",

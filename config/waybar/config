@@ -20,8 +20,8 @@
         "hyprland/workspaces",
         //"hyprland/submap",
         "temperature",
-        //"idle_inhibitor",
-        //"mpd"
+        // "idle_inhibitor",
+        "mpd",
         "custom/spotify"
     ],
     "modules-center": [
@@ -38,7 +38,7 @@
         "battery",
         //"pulseaudio",
         "wireplumber",
-        "custom/screenshot_t",
+        // "custom/screenshot_t",
         "tray",
         "custom/power"
     ],
@@ -62,13 +62,8 @@
         "format": "",
         "tooltip": false,
         "on-click-right": "nwg-drawer",
-        "on-click": "wofi --show run",
-        "on-click-middle": "pkill -9 wofi"
-    },
-    "custom/screenshot_t":{
-        "format":" ",
-        "on-click": "~/.config/hypr/scripts/screenshot_full",
-        "on-click-right":"~/.config/hypr/scripts/screenshot_area"
+        "on-click": "rofi -show drun",
+        "on-click-middle": "pkill -9 rofi"
     },
 
     "clock#1": {

@@ -1,0 +1,167 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+	modi:                       "drun,run";
+    show-icons:                 true;
+    display-drun:               "";
+    display-run:                "";
+    display-filebrowser:        "";
+    display-window:             "";
+	drun-display-format:        "{name}";
+	window-format:              "{w} · {c} · {t}";
+}
+
+/*****----- Global Properties -----*****/
+@import                          "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    font: "Lettera Mono LL bold 10";
+}
+
+/*****----- Main Window (Configuration Only) -----*****/
+window {
+    transparency:                "real";
+    location:                    south;
+    anchor:                      south;
+    fullscreen:                  false;
+    width:                       100%;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    children:                    [ message, horibox];
+    enabled:                     true;
+    cursor:                      "default";
+    padding: 5px;
+}
+
+/*****----- Horizontal Box (Configuration Only) -----*****/
+horibox {
+    orientation:                 horizontal;
+    children:                    [ "prompt", "textbox-prompt-colon","entry", "listview" ];
+}
+
+/*****----- Main Box (Configuration Only) -----*****/
+mainbox {
+    enabled:                     true;
+    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
+}
+
+/*****----- Inputbar (Configuration Only) -----*****/
+inputbar {
+    enabled:                     true;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                     true;
+    cursor:                      text;
+    vertical-align: 0.5;
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "::";
+    vertical-align: 0.5;
+}
+
+entry {
+    enabled:                     true;
+    expand:                      false;
+    width:                       20em;
+    cursor:                      text;
+    placeholder:                 "search...";
+    vertical-align: 0.5;
+}
+
+num-filtered-rows {
+    enabled:                     true;
+    expand:                      false;
+}
+
+textbox-num-sep {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "/";
+    vertical-align: 0.5;
+}
+
+num-rows {
+    enabled:                     true;
+    expand:                      false;
+}
+
+case-indicator {
+    enabled:                     true;
+}
+
+/*****----- Listview (Configuration Only) -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       100;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      horizontal;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cursor:                      "default";
+}
+
+scrollbar {
+    handle-width:                5px;
+    border-radius:               8px;
+}
+
+/*****----- Elements (Configuration Only) -----*****/
+element {
+    enabled:                     true;
+    cursor:                      pointer;
+}
+
+element-icon {
+    size:                        24px;
+    cursor:                      inherit;
+}
+
+element-text {
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    font: "Lettera Mono LL CondLight bold 10";
+}
+
+/*****----- Mode Switcher (Configuration Only) -----*****/
+mode-switcher{
+    enabled:                     true;
+}
+
+button {
+    cursor:                      pointer;
+}
+
+/*****----- Message (Configuration Only) -----*****/
+message {
+    enabled:                     true;
+}
+
+textbox {
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    highlight:                   none;
+    blink:                       true;
+    markup:                      true;
+}
+
+error-message {
+}
