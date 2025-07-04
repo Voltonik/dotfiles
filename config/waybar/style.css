@@ -1,209 +1,217 @@
 @import url("pywal-colors.css");
 
+/* Base styling */
 * {
-    font-family: "Ndot";
-    font-size: 18px;
-    font-weight: 900;
+    /* font-family: "Lettera Mono LL", "Ndot", "NType 82", monospace; */
+    font-size: 14px;
+    font-weight: 400;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
     margin: 0;
     padding: 0;
-    transition-property: background-color;
-    transition-duration: 0.5s;
 }
 
-* {
-    border: none;
-    border-radius: 0px;
-    min-height: 0;
-    margin: 0;
+/* Main bar */
+window#waybar {
+    background: alpha(@background, 0.9);
+    border: 1px solid alpha(@color1, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 2px 10px alpha(@background, 0.3);
 }
 
-#waybar {
-    /* background-color: @color0; */
-    /* color: @color7; */
-    transition-property: background-color;
-    transition-duration: 0.5s;
-    /* border-radius: 0px; */
-    margin: 0px 0px;
-}
-
-window#waybar.hidden {
-  opacity: 0.2;
+/* Workspaces */
+#workspaces {
+    /* margin: 0 12px; */
+    /* padding: 0 6px; */
+    font-family: "Ndot";
+    font-size: 36px;
 }
 
 #workspaces button {
-    padding: 3px 5px;
-    margin: 3px 5px;
-    /* border-radius: 6px; */
-    color: @color7;
-    background-color: @color0;
-    transition: all 0.3s ease-in-out;
-    /* font-size: 13px; */
+    padding: 4px 8px;
+    /* margin: 0 4px; */
+    background: transparent;
+    color: @color5;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #workspaces button.active {
-    color: @color7;
-    background: @color1; /* Red accent for active workspace */
-}
-
-#workspaces button:hover {
-    background: @color8;
+    color: @color1;
+    background: alpha(@color1, 0.1);
+    border: 1px solid alpha(@color1, 0.3);
 }
 
 #workspaces button.urgent {
-    background-color: @color1; /* Red for urgent workspaces */
-    color: @color0;
+    color: @color6;
+    background: alpha(@color6, 0.1);
 }
 
-#workspaces {
-    background-color: @color0;
-    /* border-radius: 14px; */
-    padding: 3px 6px;
+#workspaces button:hover {
+    color: @foreground;
+    background: alpha(@foreground, 0.1);
 }
 
+/* Window title */
+#window > label {
+    font-family: "NType 82";
+    font-size: 16px;
+    font-weight: 500;
+}
 #window {
-    /* background-color: @color0; */
-    /* font-size: 15px; */
-    font-weight: 800;
+    margin: 4px 12px 0 12px;
+    padding: 0 12px;
     color: @color7;
-    /* border-radius: 14px; */
-    padding: 3px 6px;
-    margin: 2px;
-    opacity: 1;
+    opacity: 0.8;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#mode,
-#idle_inhibitor,
-#mpd,
-#bluetooth,
-#custom-hyprPicker,
-#custom-power-menu,
-#custom-spotify,
-#custom-weather,
-#custom-weather.severe,
-#custom-weather.sunnyDay,
-#custom-weather.clearNight,
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight,
-#custom-weather.rainyDay,
-#custom-weather.rainyNight,
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight,
-#custom-weather.default {
-    background-color: @color0;
-    /* border-radius: 14px; */
-    padding: 6px;
-}
-
-#custom-screenshot_t {
-    background-color: @color0;
-    /* border-radius: 14px; */
-    padding: 6px;
-}
-
-#custom-spotify {
-    background-color: @color0;
-    /* border-radius: 14px; */
-    padding: 3px 12px;
-}
-
-#tray {
-    background-color: @color0;
-    /* border-radius: 14px; */
-    padding: 6px;
-}
-
-#cpu {
-    color: @color1; /* Red accent for CPU */
-    background-color: @color0;
-    padding: 6px;
-}
-
-#memory {
-    color: @color9; /* Brighter red for memory */
-    background-color: @color0;
-    padding: 6px;
-}
-
-#custom-power {
-    background-color: @color0;
-    /* border-radius: 14px; */
-    padding: 6px;
-}
-
-#custom-launcher {
-    background-color: @color1; /* Red accent for launcher */
-    color: @color0;
-    /* border-radius: 7.5px; */
-    padding: 3px 6px;
-}
-
-#custom-weather.severe {
-    color: @color1; /* Red for severe weather */
-}
-
-#pulseaudio {
-    color: @color7;
-}
-
-#backlight {
-    color: @color7;
-}
-
+/* Clock */
 #clock {
-    color: @color7;
+    margin: 0 8px;
+    padding: 4px 16px;
+    color: @foreground;
+    font-family: "Lettera Mono LL";
+    font-size: 14px;
+    font-weight: 500;
+    background: alpha(@color1, 0.1);
+    border: 1px solid alpha(@color1, 0.2);
+    border-radius: 12px;
+    transition: all 0.2s ease;
 }
 
-#battery {
-    color: @color7;
+#clock:hover {
+    background: alpha(@color1, 0.2);
+    border-color: alpha(@color1, 0.4);
 }
 
-#battery.charging,
-#battery.full,
-#battery.plugged {
-    color: @color2; /* Original green preserved */
+/* System tray */
+#tray {
+    margin: 0 8px;
+    padding: 0 8px;
 }
 
-#battery.critical:not(.charging) {
-    color: @color1; /* Red for critical battery */
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#bluetooth {
-    color: @color7;
-}
-
-#bluetooth.disconnected {
-    color: @color1; /* Red for disconnected */
-}
-
-#network {
-    color: @color7;
-}
-
-#network.disconnected {
-    color: @color1; /* Red for disconnected */
-}
-
-#temperature.critical {
-    background-color: @color1; /* Red for critical temp */
+#tray > .passive {
+    opacity: 0.6;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @color1; /* Red for attention */
+    color: @color6;
+}
+
+/* Module styling */
+.modules-right > widget {
+    margin: 0 4px;
+}
+
+.modules-right > widget > * {
+    padding: 6px 14px;  /* Increased horizontal padding */
+    margin: 0 4px;
+    background: alpha(@color5, 0.1);
+    border: 1px solid alpha(@color5, 0.2);
+    border-radius: 8px;
+    color: @foreground;
+    font-family: "Ndot";
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.modules-right > widget > *:hover {
+    background: alpha(@color1, 0.1);
+    border-color: alpha(@color1, 0.3);
+    color: @color1;
+}
+
+/* Specific modules */
+#idle_inhibitor.activated {
+    color: @color6;
+    background: alpha(@color6, 0.1);
+    border-color: alpha(@color6, 0.3);
+}
+
+#network.disconnected {
+    color: @color8;
+    opacity: 0.5;
+}
+
+#network.wifi {
+    color: @color2;
+}
+
+#network.ethernet {
+    color: @color10;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+    color: @color8;
+    opacity: 0.5;
+}
+
+#bluetooth.connected {
+    color: @color2;
+}
+
+#pulseaudio.muted {
+    color: @color8;
+    opacity: 0.5;
+}
+
+#battery.charging {
+    color: @color2;
+}
+
+#battery.warning:not(.charging) {
+    color: @color11;
+}
+
+#battery.critical:not(.charging) {
+    color: @color1;
+}
+
+#custom-notification.notification {
+    color: @color6;
+}
+
+/* Tooltips */
+tooltip {
+    background: alpha(@background, 0.95);
+    border: 1px solid alpha(@color1, 0.3);
+    border-radius: 8px;
+    color: @foreground;
+    font-family: "NType 82";
+    font-size: 12px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 12px alpha(@background, 0.4);
+}
+
+/* NothingOS-inspired glowing effects */
+#workspaces button.active,
+#clock:hover,
+.modules-right > widget > *:hover {
+    box-shadow: 0 0 8px alpha(@color1, 0.3);
+}
+
+/* Smooth transitions */
+#workspaces button,
+#clock,
+.modules-right > widget > * {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar */
+tooltip scrollbar {
+    background: alpha(@color5, 0.1);
+    border-radius: 4px;
+    min-width: 4px;
+}
+
+tooltip scrollbar slider {
+    background: alpha(@color1, 0.5);
+    border-radius: 4px;
+    min-height: 20px;
+}
+
+tooltip scrollbar slider:hover {
+    background: alpha(@color1, 0.7);
 }

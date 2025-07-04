@@ -1,0 +1,16 @@
+@theme "~/.cache/wal/theme.rasi"
+
+/* 
+  bg - background
+  fg - foreground
+  br - border
+*/
+
+* {
+  main-bg:        @bg;
+  select-fg:      @bg;
+  main-br:        @color1;
+  select-bg:      @color1;
+  main-fg:        @fg;
+  input-bg:       @color1;
+}

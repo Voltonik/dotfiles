@@ -1,0 +1,187 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "spacing": 0,
+    "margin-top": 4,
+    "margin-left": 8,
+    "margin-right": 8,
+    
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    
+    "modules-center": [
+        "clock"
+    ],
+        
+    "modules-right": [
+        "tray",
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "battery",
+        "custom/notification",
+        "custom/power"
+    ],
+    
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "●",
+            "default": "○"
+        },
+        "persistent-workspaces": {
+          "1": [],
+          "2": [],
+          "3": [],
+          "4": [],
+          "5": []
+        },
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1"
+      },
+    
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 40,
+        "separate-outputs": true,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "Firefox",
+            "(.*) - Visual Studio Code": "Code",
+            "(.*) - Brave": "Brave",
+            "(.*) - Discord": "Discord",
+            "": "Desktop"
+        }
+    },
+    
+    "clock": {
+        "format": "{:%I:%M %p · %a %d %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#E0E0E0'><b>{}</b></span>",
+                "days": "<span color='#E0E0E0'><b>{}</b></span>",
+                "weeks": "<span color='#D71921'><b>W{}</b></span>",
+                "weekdays": "<span color='#FF1D25'><b>{}</b></span>",
+                "today": "<span color='#D71921'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
+        "show-passive-items": true
+    },
+    
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰾪"
+        },
+        "tooltip": true
+    },
+    
+    "network": {
+        "format-wifi": "󰤨    {essid}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "tooltip-format": "{ifname}\n\n<b> Up:</b> {bandwidthUpBytes} B/s\n<b> Down:</b> {bandwidthDownBytes} B/s\n\n<b> SSID:</b> {essid} ({signalStrength}%)\n<b> IP:</b> {ipaddr}",
+        "tooltip-format-ethernet": "{ifname}\n\n<b> Up:</b> {bandwidthUpBytes} B/s\n<b> Down:</b> {bandwidthDownBytes} B/s\n\n<b> IP:</b> {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "Disconnected\n\n<b>Interface:</b> {ifname}",
+        "on-click": "~/.config/waybar/scripts/wifi-menu.sh",
+        "interval": 1
+    },
+    
+    "bluetooth": {
+        "format": "󰂰",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱",
+        "format-connected-battery": "󰂱",
+
+        "tooltip-format": 
+            "{num_connections} connected",
+        "tooltip-format-disabled": 
+            "Bluetooth Disabled",
+        "tooltip-format-connected": 
+            "{device_enumerate}",
+        "tooltip-format-enumerate-connected": 
+            "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": 
+            ":: {device_alias}: 󱊣 {device_battery_percentage}%",
+
+        "on-click": "~/.config/waybar/scripts/bluetooth-menu.sh",
+        "on-click-right": "blueman-manager",
+        "interval": 1,
+        "min-length": 1,
+        "max-length": 1
+    },
+    
+    "custom/power": {
+        "format": " ",
+        "tooltip": false,
+        // "tooltip-format": "Power Menu",
+        "on-click": "~/.config/waybar/scripts/power-menu.sh"
+      },
+    
+    "pulseaudio": {
+        "format": "{icon}    {volume}%",
+        "format-bluetooth": "{icon}    {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋋",
+            "headset": "󰋋",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}    {capacity}%",
+        "format-charging": "󰂄    {capacity}%",
+        "format-plugged": "󰂄    {capacity}%",
+        "format-alt": "{time}    {icon}",
+        "format-full": "󰁹    {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{timeTo}, {capacity}%"
+    },
+    
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󰂚",
+            "none": "󰂜",
+            "dnd-notification": "󰂛",
+            "dnd-none": "󰂜",
+            "inhibited-notification": "󰂚",
+            "inhibited-none": "󰂜",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰂜"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}

@@ -65,6 +65,7 @@ class Desktop(Module):
             f"{self.config_dest_dir}/waybar/": Directory(
                 source_directory="./config/waybar",
                 owner=self.current_user,
+                permissions=0o755
             ),
             f"{self.config_dest_dir}/rofi/": Directory(
                 source_directory="./config/rofi",
