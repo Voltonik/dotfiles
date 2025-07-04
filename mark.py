@@ -1,4 +1,4 @@
-from decman import Module, Directory, File, prg
+from decman import Module
 
 class Mark(Module):
     def __init__(self, current_user: str):
@@ -11,8 +11,15 @@ class Mark(Module):
     def pacman_packages(self) -> list[str]:
         return [
             "discord",
+            "dotnet-sdk",
+            "zlib",
+            "lib32-zlib",
             
 # AUR Packages:
             "unityhub",
+            "plasticscm-client-core",
+            "plasticscm-client-gui",
+            "umu-launcher",
+            "lutris",
         ]
         

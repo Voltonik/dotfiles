@@ -1,8 +1,8 @@
 @import url("pywal-colors.css");
 
 * {
-    font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-family: "Ndot";
+    font-size: 18px;
     font-weight: 900;
     margin: 0;
     padding: 0;
@@ -12,17 +12,17 @@
 
 * {
     border: none;
-    border-radius: 3px;
+    border-radius: 0px;
     min-height: 0;
-    margin: 0.1em 0.2em 0.1em 0.2em;
+    margin: 0;
 }
 
 #waybar {
-    background-color: @color0;
-    color: @color7;
+    /* background-color: @color0; */
+    /* color: @color7; */
     transition-property: background-color;
     transition-duration: 0.5s;
-    border-radius: 0px;
+    /* border-radius: 0px; */
     margin: 0px 0px;
 }
 
@@ -33,11 +33,11 @@ window#waybar.hidden {
 #workspaces button {
     padding: 3px 5px;
     margin: 3px 5px;
-    border-radius: 6px;
+    /* border-radius: 6px; */
     color: @color7;
     background-color: @color0;
     transition: all 0.3s ease-in-out;
-    font-size: 13px;
+    /* font-size: 13px; */
 }
 
 #workspaces button.active {
@@ -56,16 +56,16 @@ window#waybar.hidden {
 
 #workspaces {
     background-color: @color0;
-    border-radius: 14px;
+    /* border-radius: 14px; */
     padding: 3px 6px;
 }
 
 #window {
-    background-color: @color0;
-    font-size: 15px;
+    /* background-color: @color0; */
+    /* font-size: 15px; */
     font-weight: 800;
     color: @color7;
-    border-radius: 14px;
+    /* border-radius: 14px; */
     padding: 3px 6px;
     margin: 2px;
     opacity: 1;
@@ -101,25 +101,25 @@ window#waybar.hidden {
 #custom-weather.snowyIcyNight,
 #custom-weather.default {
     background-color: @color0;
-    border-radius: 14px;
+    /* border-radius: 14px; */
     padding: 6px;
 }
 
 #custom-screenshot_t {
     background-color: @color0;
-    border-radius: 14px;
+    /* border-radius: 14px; */
     padding: 6px;
 }
 
 #custom-spotify {
     background-color: @color0;
-    border-radius: 14px;
+    /* border-radius: 14px; */
     padding: 3px 12px;
 }
 
 #tray {
     background-color: @color0;
-    border-radius: 14px;
+    /* border-radius: 14px; */
     padding: 6px;
 }
 
@@ -137,14 +137,14 @@ window#waybar.hidden {
 
 #custom-power {
     background-color: @color0;
-    border-radius: 14px;
+    /* border-radius: 14px; */
     padding: 6px;
 }
 
 #custom-launcher {
     background-color: @color1; /* Red accent for launcher */
     color: @color0;
-    border-radius: 7.5px;
+    /* border-radius: 7.5px; */
     padding: 3px 6px;
 }
 
