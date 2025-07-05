@@ -2,7 +2,7 @@
 
 /* Base styling */
 * {
-    /* font-family: "Lettera Mono LL", "Ndot", "NType 82", monospace; */
+    font-family: "Lettera Mono LL", "Ndot", "NType 82", monospace;
     font-size: 14px;
     font-weight: 400;
     min-height: 0;
@@ -127,6 +127,26 @@ window#waybar {
     color: @color6;
     background: alpha(@color6, 0.1);
     border-color: alpha(@color6, 0.3);
+}
+
+#custom-stats {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    padding: 6px 14px;
+    margin: 0 4px;
+    background: alpha(@color5, 0.1);
+    border: 1px solid alpha(@color5, 0.2);
+    border-radius: 8px;
+    color: @foreground;
+    transition: all 0.2s ease;
+}
+
+#custom-stats:hover {
+    /* Match right-module hover effect */
+    background: alpha(@color1, 0.1);
+    border-color: alpha(@color1, 0.3);
+    color: @color1;
+    box-shadow: 0 0 8px alpha(@color1, 0.3);
 }
 
 #network.disconnected {

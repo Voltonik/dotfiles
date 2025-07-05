@@ -16,6 +16,7 @@ class Desktop(Module):
             "xdg-desktop-portal",
             "ly",
             "waybar",
+            "gopsuinfo",
             "swaybg",
             "swaylock",
             "swayidle",
@@ -25,7 +26,6 @@ class Desktop(Module):
             "nautilus",
             "btop",
             "mpd",
-            
             "polkit-gnome",
             "wl-clipboard",
             "wl-clip-persist",
@@ -40,6 +40,7 @@ class Desktop(Module):
             "freetype2",
             "fontconfig",
             "cairo",
+            "ttf-jetbrains-mono-nerd",
 
 # AUR Packages:
             "wlogout",

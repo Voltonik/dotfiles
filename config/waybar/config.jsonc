@@ -9,7 +9,8 @@
     
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/window"
+        // "hyprland/window",
+        "custom/stats"
     ],
     
     "modules-center": [
@@ -57,7 +58,7 @@
     },
     
     "clock": {
-        "format": "{:%I:%M %p · %a %d %b}",
+        "format": "{:%I:%M %p·%a %d %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
@@ -124,6 +125,13 @@
         "max-length": 1
     },
     
+    "custom/stats": {
+        "exec": "~/.config/waybar/scripts/system-stats.sh",
+        "interval": 2,
+        "return-type": "json",
+        "on-click": "kitty --hold sh -c \"btop\""
+    },
+
     "custom/power": {
         "format": " ",
         "tooltip": false,
