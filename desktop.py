@@ -56,6 +56,7 @@ class Desktop(Module):
         return {
             f"{self.config_dest_dir}/gtk-3.0/settings.ini": File(source_file="./config/gtk-3.0/settings.ini", owner=self.current_user),
             f"{self.config_dest_dir}/gtk-4.0/settings.ini": File(source_file="./config/gtk-4.0/settings.ini", owner=self.current_user),
+            f"{self.home_dir}/.local/share/nautilus/scripts/images/change-wallpaper.sh": File(source_file="./scripts/change-wallpaper.sh", owner=self.current_user, permissions=0o755),
         }
 
     def directories(self) -> dict[str, Directory]:
