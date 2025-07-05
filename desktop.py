@@ -24,6 +24,7 @@ class Desktop(Module):
             "rofi-calc",
             "swaync",
             "nautilus",
+            "ntfs-3g",
             "btop",
             "mpd",
             "polkit-gnome",
