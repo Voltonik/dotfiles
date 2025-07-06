@@ -23,7 +23,6 @@ class Desktop(Module):
             "nautilus",
             "swaybg",
             "swaylock",
-            "swayidle",
             "swaync",
             "ntfs-3g",
             "btop",

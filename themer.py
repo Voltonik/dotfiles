@@ -92,6 +92,19 @@ class Themer(Module):
     def after_update(self):
         print("-------Applying gradience and kvantum themes-------")
         
+        cached_theme_json = f"{self.home_dir}/.cache/wal/colors.json"
+        if os.path.exists(cached_theme_json):
+            import json
+
+            with open(cached_theme_json, 'r') as f:
+                cached_theme = json.loads(f.read())
+            with open("theme.json", 'r') as f:
+                current_theme = json.loads(f.read())
+            
+            if all(cached_theme.get(key) == current_theme.get(key) for key in current_theme):
+                print("Current theme is the same as cached theme, skipping applying the theme")
+                return
+        
         self._generate_theme_files()
         self._install_fonts()
         self._set_gsettings()
