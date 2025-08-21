@@ -14,8 +14,16 @@ class Mark(Module):
             "dotnet-sdk",
             "zlib",
             "lib32-zlib",
+            "aspnet-runtime",
+            "audacity",
+            "obs-studio",
+            "docker", "docker-desktop",
+            "github-cli",
+            "nodejs", "npm",
+            "qbittorrent",
             
 # AUR Packages:
+            "vesktop",
             "unityhub",
             "plasticscm-client-core",
             "plasticscm-client-gui",

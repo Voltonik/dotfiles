@@ -17,10 +17,10 @@ workspace = 5, name:Altweb, monitor:$right, layout:master
 windowrulev2 = workspace 2, class:^steam$
 windowrulev2 = workspace 2, class:^net\.lutris\.Lutris$
 windowrulev2 = workspace 3, class:^unity$
-windowrulev2 = workspace 3, class:^unityhub$
-windowrulev2 = workspace 4, class:^Code$
+windowrulev2 = workspace 3, class:^aaaa$
+windowrulev2 = workspace 4, class:^bbb$
 
-bind = $mainMod ALT, 1, exec, ~/.config/hypr/config/sessions/session-spawn.sh "thorium-browser" "thorium-browser" 1 5
-bind = $mainMod ALT, 2, exec, ~/.config/hypr/config/sessions/session-gaming.sh
-bind = $mainMod ALT, 3, exec, ~/.config/hypr/config/sessions/session-dev.sh
-bind = $mainMod ALT, 4, exec, ~/.config/hypr/config/sessions/session-spawn.sh "vesktop" "Vesktop" 1 5
+bind = $mainMod ALT, 5, exec, ~/.config/hypr/config/sessions/session-spawn.sh "thorium-browser" "thorium-browser" 1 5
+bind = $mainMod ALT, 6, exec, ~/.config/hypr/config/sessions/session-gaming.sh
+bind = $mainMod ALT, 7, exec, ~/.config/hypr/config/sessions/session-dev.sh
+bind = $mainMod ALT, 8, exec, ~/.config/hypr/config/sessions/session-spawn.sh "vesktop" "Vesktop" 1 5
