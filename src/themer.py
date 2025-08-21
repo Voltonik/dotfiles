@@ -14,7 +14,7 @@ class Themer(Module):
     def _generate_theme_files(self):
         wal_cache_dir = f"{self.home_dir}/.cache/wal"
 
-        prg(["wal", "--theme", "theme.json"], self.current_user)
+        prg(["wal", "--theme", "data/theme.json"], self.current_user)
 
         os.makedirs(f"{self.config_dest_dir}/presets/user", exist_ok=True)
         os.makedirs(f"{self.config_dest_dir}/Kvantum/pywal", exist_ok=True)
@@ -33,11 +33,12 @@ class Themer(Module):
     def _install_fonts(self):
         font_dir = f"{self.home_dir}/.local/share/fonts/"
         os.makedirs(font_dir, exist_ok=True)
-        for font in os.listdir("./custom-fonts"):
-            src = f"./custom-fonts/{font}"
-            dest = f"{font_dir}{font}"
-            if os.path.isfile(src):
-                shutil.copyfile(src, dest)
+        for font in os.listdir("./config/fonts"):
+            if font.endswith(('.otf', '.ttf')):  # Only copy font files
+                src = f"./config/fonts/{font}"
+                dest = f"{font_dir}{font}"
+                if os.path.isfile(src):
+                    shutil.copyfile(src, dest)
         
         os.system(f"fc-cache -f")
         
@@ -81,12 +82,12 @@ class Themer(Module):
 
     def files(self) -> dict[str, File]:
         return {
-            f"{self.config_dest_dir}/Kvantum/kvantum.kvconfig": File(source_file="./config/Kvantum/kvantum.kvconfig", owner=self.current_user),
+            f"{self.config_dest_dir}/Kvantum/kvantum.kvconfig": File(source_file="./config/theming/Kvantum/kvantum.kvconfig", owner=self.current_user),
         }
 
     def directories(self) -> dict[str, Directory]:
         return {
-            f"{self.config_dest_dir}/wal/": Directory(source_directory="./config/wal", owner=self.current_user),
+            f"{self.config_dest_dir}/wal/": Directory(source_directory="./config/theming/wal", owner=self.current_user),
         }
 
     def after_update(self):
@@ -98,7 +99,7 @@ class Themer(Module):
 
             with open(cached_theme_json, 'r') as f:
                 cached_theme = json.loads(f.read())
-            with open("theme.json", 'r') as f:
+            with open("data/theme.json", 'r') as f:
                 current_theme = json.loads(f.read())
             
             if all(cached_theme.get(key) == current_theme.get(key) for key in current_theme):

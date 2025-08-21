@@ -66,54 +66,55 @@ class Desktop(Module):
     
     def files(self) -> dict[str, File]:
         return {
-            f"{self.config_dest_dir}/gtk-3.0/settings.ini": File(source_file="./config/gtk-3.0/settings.ini", owner=self.current_user),
-            f"{self.config_dest_dir}/gtk-4.0/settings.ini": File(source_file="./config/gtk-4.0/settings.ini", owner=self.current_user),
-            f"{self.home_dir}/.local/share/nautilus/scripts/images/change-wallpaper.sh": File(source_file="./scripts/change-wallpaper.sh", owner=self.current_user, permissions=0o755),
+            f"{self.config_dest_dir}/gtk-3.0/settings.ini": File(source_file="./config/theming/gtk-3.0/settings.ini", owner=self.current_user),
+            f"{self.config_dest_dir}/gtk-4.0/settings.ini": File(source_file="./config/theming/gtk-4.0/settings.ini", owner=self.current_user),
+            f"{self.home_dir}/.local/share/nautilus/scripts/images/change-wallpaper.sh": File(source_file="./scripts/system/change-wallpaper.sh", owner=self.current_user, permissions=0o755),
         }
 
     def directories(self) -> dict[str, Directory]:
         return {
             f"{self.config_dest_dir}/hypr/": Directory(
-                source_directory="./config/hypr",
+                source_directory="./config/desktop/hypr",
                 owner=self.current_user,
                 permissions=0o755
             ),
             f"{self.config_dest_dir}/waybar/": Directory(
-                source_directory="./config/waybar",
+                source_directory="./config/desktop/waybar",
+                owner=self.current_user,
+                permissions=0o755
+            ),
+            f"{self.config_dest_dir}/waybar/scripts": Directory(
+                source_directory="./scripts/waybar",
                 owner=self.current_user,
                 permissions=0o755
             ),
             f"{self.config_dest_dir}/rofi/": Directory(
-                source_directory="./config/rofi",
+                source_directory="./config/desktop/rofi",
                 owner=self.current_user,
                 permissions=0o755
             ),
             f"{self.config_dest_dir}/swaync/": Directory(
-                source_directory="./config/swaync",
+                source_directory="./config/notifications/swaync",
                 owner=self.current_user,
             ),
             f"{self.config_dest_dir}/swaylock/": Directory(
-                source_directory="./config/swaylock",
-                owner=self.current_user,
-            ),
-            f"{self.config_dest_dir}/qt5ct/": Directory(
-                source_directory="./config/qt5ct",
+                source_directory="./config/theming/swaylock",
                 owner=self.current_user,
             ),
             f"{self.config_dest_dir}/fish/": Directory(
-                source_directory="./config/fish",
+                source_directory="./config/terminal/fish",
                 owner=self.current_user,
             ),
             f"{self.config_dest_dir}/kitty/": Directory(
-                source_directory="./config/kitty",
+                source_directory="./config/terminal/kitty",
                 owner=self.current_user,
             ),
             f"{self.config_dest_dir}/fontconfig/": Directory(
-                source_directory="./config/fontconfig",
+                source_directory="./config/fonts/fontconfig",
                 owner=self.current_user,
             ),
             f"{self.config_dest_dir}/qt5ct/": Directory(
-                source_directory="./config/qt5ct",
+                source_directory="./config/theming/qt5ct",
                 owner=self.current_user,
             ),
         }
@@ -139,8 +140,8 @@ class Desktop(Module):
     # ----------------------------
     def _insert_waybar_icons_inline(self, repo_root: Path):
         """Insert/update hyprland/workspaces block inside source repo waybar config (in-place)."""
-        monitors_json = repo_root / "workspaces.json"
-        waybar_cfg = repo_root / "config" / "waybar" / "config.jsonc"
+        monitors_json = repo_root / "data" / "workspaces.json"
+        waybar_cfg = repo_root / "config" / "desktop" / "waybar" / "config.jsonc"
         backup = waybar_cfg.with_suffix(".jsonc.bak")
 
         if not monitors_json.exists():
@@ -246,8 +247,8 @@ class Desktop(Module):
         Generate a hyprland monitors/workspaces snippet from repo's config/hypr/monitors.json
         and write it to repo's config/hypr/config/monitor.conf (backup created).
         """
-        monitors_json = repo_root / "workspaces.json"
-        hypr_out = repo_root / "config" / "hypr" / "config" / "monitor.conf"
+        monitors_json = repo_root / "data" / "workspaces.json"
+        hypr_out = repo_root / "config" / "desktop" / "hypr" / "config" / "monitor.conf"
         backup = hypr_out.with_suffix(".conf.bak")
 
         if not monitors_json.exists():
