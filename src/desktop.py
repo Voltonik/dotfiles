@@ -28,7 +28,7 @@ class Desktop(Module):
         return [
             "git",
             "neovim",
-            "hyprland", "hyprland-protocols", "hyprlang", "hyprutils", "hyprwayland-scanner", "xdg-desktop-portal-hyprland", "xdg-desktop-portal",
+            "hyprland", "xorg-xwayland", "hyprland-protocols", "hyprlang", "hyprutils", "hyprwayland-scanner", "xdg-desktop-portal-hyprland", "xdg-desktop-portal",
             "ly",
             "polkit-gnome",
             "rofi-wayland", "rofi-calc",
@@ -55,6 +55,10 @@ class Desktop(Module):
             "fontconfig",
             "cairo",
             "ttf-jetbrains-mono-nerd",
+            "rsync",
+            "ripgrep",
+            "openssh",
+            "python-packaging",
 
 # AUR Packages:
             "thorium-browser-bin",
