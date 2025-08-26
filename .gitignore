@@ -1,3 +1,6 @@
 /data/*
 !/data/examples
 !/data/examples/*
+**/*.bak
+
+config/desktop/hypr/config/monitor.conf
