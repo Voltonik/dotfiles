@@ -28,6 +28,7 @@
         "custom/power"
     ],
     
+    // TODO: make this an import and add to gitignore
     "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
