@@ -30,5 +30,6 @@ class User(Module):
             "plasticscm-client-gui",
             "umu-launcher",
             "lutris",
+            "etcher-bin",
         ]
         
