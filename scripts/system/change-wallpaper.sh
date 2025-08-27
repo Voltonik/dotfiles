@@ -7,7 +7,7 @@
 read -r WALLPAPER_PATH _ <<< "$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS"
 
 # Path to your theme.json in your dotfiles repo
-THEME_JSON="$HOME/dotfiles/theme.json"
+THEME_JSON="$HOME/dotfiles/data/theme.json"
 
 # Sanity check: file exists and is a regular file
 if [[ ! -f "$WALLPAPER_PATH" ]]; then

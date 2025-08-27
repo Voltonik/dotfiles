@@ -92,8 +92,9 @@ class Themer(Module):
 
     def after_update(self):
         print("-------Applying gradience and kvantum themes-------")
-        
+
         cached_theme_json = f"{self.home_dir}/.cache/wal/colors.json"
+        skip_theme = False
         if os.path.exists(cached_theme_json):
             import json
 
@@ -101,14 +102,26 @@ class Themer(Module):
                 cached_theme = json.loads(f.read())
             with open("data/theme.json", 'r') as f:
                 current_theme = json.loads(f.read())
-            
+
             if all(cached_theme.get(key) == current_theme.get(key) for key in current_theme):
-                print("Current theme is the same as cached theme, skipping applying the theme")
-                return
-        
-        self._generate_theme_files()
-        self._install_fonts()
-        self._set_gsettings()
-        
-        prg(["gradience-cli", "apply", "-n", "pywal", "--gtk", "both"], self.current_user)
-        prg(["kvantummanager", "--set", "pywal"], self.current_user)
+                # Check if css_dirs (waybar, swaync) have pywal-colors.css
+                css_dirs = ["waybar", "swaync"]
+                missing_css = False
+                for css_dir in css_dirs:
+                    css_path = f"{self.config_dest_dir}/{css_dir}/pywal-colors.css"
+                    if not os.path.exists(css_path):
+                        missing_css = True
+                        break
+                if not missing_css:
+                    print("Current theme is the same as cached theme, skipping applying the theme")
+                    skip_theme = True
+                else:
+                    print("Current theme is the same as cached theme, but css files have not been created. creating them..")
+
+        if not skip_theme:
+            self._generate_theme_files()
+            self._install_fonts()
+            self._set_gsettings()
+
+            prg(["gradience-cli", "apply", "-n", "pywal", "--gtk", "both"], self.current_user)
+            prg(["kvantummanager", "--set", "pywal"], self.current_user)
